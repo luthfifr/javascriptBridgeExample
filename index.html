@@ -17,7 +17,7 @@
         if (window.webkit != undefined) {
           window.webkit.messageHandlers.jsMessageHandler.postMessage(valueReceived);  
         } else if (window.jsMessageHandler != undefined) {
-          window.jsMessageHandler.postMessage(valueReceived);
+          window.jsMessageHandler.showToast(valueReceived);
         }
       }
 
