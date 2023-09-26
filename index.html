@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <body>
+    <p style="font-size:20pt;">JavaScript Bridge Example Webpage (2-way communication)</p>
+
+    <input id="inputField" style="height:50px;width:300px;font-size:20pt;" type="text" value="">
+
+    <br><br>
+
+    <input onClick="sendMessageToNative()" style="height:50px;width:300px;font-size:20pt;" type="button" value="Send data to native" />
+
+    <script type="text/javascript">
+      function sendMessageToNative() {
+        var valueReceived = document.getElementById("inputField").value;
+
+        if (window.webkit != undefined) {
+          window.webkit.messageHandlers.jsMessageHandler.postMessage(valueReceived);  
+        } else if (window.appInterface != undefined) {
+          window.jsMessageHandler.postMessage(valueReceived);
+        }
+      }
+
+      function updateFromNative(message) {
+        document.getElementById("inputField").value = message;
+      }
+    </script>
+    <style>
+      body {
+        background-color: #93B874
+      }
+    </style>
+  </body>
+
+</html>
