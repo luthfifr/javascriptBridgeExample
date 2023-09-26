@@ -16,7 +16,7 @@
 
         if (window.webkit != undefined) {
           window.webkit.messageHandlers.jsMessageHandler.postMessage(valueReceived);  
-        } else if (window.appInterface != undefined) {
+        } else if (window.jsMessageHandler != undefined) {
           window.jsMessageHandler.postMessage(valueReceived);
         }
       }
